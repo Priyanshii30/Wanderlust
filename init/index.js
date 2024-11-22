@@ -4,23 +4,20 @@ const Listing = require("../models/listing.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
-main()
-  .then(() => {
+main().then(() => {
     console.log("connected to DB");
-  })
-  .catch((err) => {
+}).catch((err) => {
     console.log(err);
-  });
-
+});
 async function main() {
-  await mongoose.connect(MONGO_URL);
+    await mongoose.connect(MONGO_URL);
 }
 
 const initDB = async () => {
-  await Listing.deleteMany({});
-  initData.data = initData.data.map((obj) => ({ ...obj, owner:'673740937495349d12484482' }));
-  await Listing.insertMany(initData.data);
-  console.log("data was initialized");
-};
+    await Listing.deleteMany({});
+    initData.data = initData.data.map((obj) => ({...obj, owner: "65468b4c6da8100f6256cc0b"}))
+    await Listing.insertMany(initData.data);
+    console.log("data was initialized");
+}
 
 initDB();
